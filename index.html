@@ -68,6 +68,7 @@
         function getCalculations() {
             $.get(getUrl,
                 function(data, status){ //retreive response
+                    console.log(status)
                     if (status == 200){
                         console.log(data);
                         console.log(status);
