@@ -55,7 +55,7 @@
                 dataType: 'json',
                 data : calculation,
                 type: 'POST',
-                complete: function(callback) {
+                success: function(callback) {
                     getCalculations();
                 }
             });
@@ -75,7 +75,7 @@
                     contentType : "application/json",
                     dataType: 'json',
                     type: 'GET',
-                    complete: function(callback) {
+                    success: function(callback) {
                         console.log(callback.data);
                         display(callback.data);
                     }
