@@ -27,6 +27,7 @@ function postCalculation(){
     }
 
     function getCalculations() {
+        console.log("GOT HERE")
         $.ajax({
             url: getUrl,
             crossDomain : true,
