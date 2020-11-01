@@ -69,6 +69,8 @@
             $.get(getUrl,
                 function(data, status){ //retreive response
                     if (status == 200){
+                        console.log(data);
+                        console.log(status);
                         display(data);
                     }
                 },
