@@ -27,14 +27,13 @@ function postCalculation(){
     }
 
     function getCalculations() {
-        console.log("GOT HERE")
         $.ajax({
             url: getUrl,
             crossDomain : true,
             contentType : "application/json",
             dataType: 'json',
             type: 'GET',
-            success: function(callback) {
+            complete: function(callback) {
                 console.log( 'success' );
                 display(callback.data)
             }
