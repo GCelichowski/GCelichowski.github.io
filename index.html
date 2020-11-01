@@ -42,8 +42,8 @@
         </div>
     </div>
     <script>
-    var postUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/SezzleCalculator";
-    var getUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/retrievecalculations";
+    var postUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/SezzleCalculator?callback=?";
+    var getUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/retrievecalculations?callback=?";
     function postCalculation(){
         var calculation = document.getElementById("input");
         $.post(postUrl,      // send HTTP POST request to a page and get the answer
@@ -69,6 +69,7 @@
             $.ajax({
                 url: getUrl,
                 crossDomain : true,
+                contentType : "application/json",
                 dataType: 'json',
                 type: 'GET',
                 success: function(callback) {
