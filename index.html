@@ -66,15 +66,15 @@
         }
 
         function getCalculations() {
-            $.get(getUrl,
-                function(data, status){ //retreive response
-                    console.log("got here")
-                    if (status == 200){
-                        display(data);
-                    }
-                },
-                "json"
-            )
+            $.ajax({
+                url: getUrl,
+                dataType: 'json',
+                type: 'GET',
+                success: function(callback) {
+                    console.log( 'success' );
+                    display(callback.data)
+                }
+            });
         }
     </script>
 </body>
