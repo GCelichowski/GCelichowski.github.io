@@ -1,4 +1,4 @@
-﻿<html>
+﻿﻿<html>
 
 <head>
     <meta charset="utf-8">
@@ -22,12 +22,14 @@
 </head>
 
 <body onload="getCalculations()">
-     <div>
-        <h1>Welcome to Gavin Celichowski's Calculator</h1>
-        <input id="input" type = "text" pattern = "[0-9] [-+*^/] [0-9]" placeholder="Enter a calculation" required>
-        <button onclick="postCalculation()">
-          Calculate
-        </button>
+     <div class = "container">
+         <div class = "container">
+            <h1>Welcome to Gavin Celichowski's Calculator</h1>
+            <input id="input" type = "text" pattern = "[0-9] [-+*^/] [0-9]" placeholder="Enter a calculation" required>
+            <button onclick="postCalculation()">
+              Calculate
+            </button>
+         </div>
         <div class="container">
             <table class="table" id="calculations">
                 <thead>
