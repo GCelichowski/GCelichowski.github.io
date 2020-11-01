@@ -78,6 +78,9 @@
                     success: function(callback) {
                         console.log(callback.data);
                         display(callback.data);
+                    },
+                    error: function(callback){
+                        console.log("Got Here")
                     }
                 });
             }
