@@ -1,1 +1,78 @@
-Hello World!
+﻿<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        div.calcBox{
+           height: 20vw;
+           width: 20vw; 
+        }
+        td.calcInfo{
+            background-color: black;
+            color: white;
+            overflow-y: scroll;
+            width: 15vw;
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body onload="getCalculations()">
+     <div>
+        <h1>Welcome to Gavin Celichowski's Calculator</h1>
+        <input id="input" type = "text" pattern = "[0-9] [-+*^/] [0-9]" placeholder="Enter a calculation" required>
+        <button onclick="postCalculation()">
+          Calculate
+        </button>
+        <div class="container">
+            <table class="table" id="calculations">
+                <thead>
+                    <tr>
+                        <th scope="col">Calculation</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+    var postUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/SezzleCalculator";
+    var getUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/retrievecalculations";
+    function postCalculation(){
+        var calculation = document.getElementById("input");
+        $.post(postUrl,      // send HTTP POST request to a page and get the answer
+            {
+                postCalculation : calculation
+            },
+            function(data, status){ //retreive response
+                if (status == 200){
+                    getCalculations();
+                }
+            },
+            "json");
+}
+        function display(calculations){
+            var html = "";
+            calculations.array.forEach(element => {
+                html += "<tr><td class='calcInfo'><div class = 'calcBox'>" + JSON.stringify(element, undefined, 2) + "</div></td>";
+            });
+            document.getElementById("calculations").innerHTML = html;
+        }
+
+        function getCalculations() {
+            $.get(getUrl,
+                function(data, status){ //retreive response
+                    if (status == 200){
+                        display(data);
+                    }
+                },
+                "json"
+            )
+        }
+    </script>
+</body>
+</html>
