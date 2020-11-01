@@ -12,9 +12,8 @@ function postCalculation(){
         dataType: 'json',
         data : calculation,
         type: 'POST',
-        success: function(callback) {
-            console.log( 'success' );
-            display(callback.data)
+        complete: function(callback) {
+            getCalculations();
         }
     });
 }
@@ -34,8 +33,8 @@ function postCalculation(){
             dataType: 'json',
             type: 'GET',
             complete: function(callback) {
-                console.log( 'success' );
-                display(callback.data)
+                console.log(callback.data);
+                display(callback.data);
             }
         });
     }
