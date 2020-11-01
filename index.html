@@ -55,7 +55,7 @@
                     getCalculations();
                 }
             },
-            "jsonp");
+            "json");
 }
         function display(calculations){
             var html = "";
@@ -68,14 +68,12 @@
         function getCalculations() {
             $.get(getUrl,
                 function(data, status){ //retreive response
-                    console.log(status)
+                    console.log("got here")
                     if (status == 200){
-                        console.log(data);
-                        console.log(status);
                         display(data);
                     }
                 },
-                "jsonp"
+                "json"
             )
         }
     </script>
