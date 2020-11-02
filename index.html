@@ -23,7 +23,7 @@
      <div class = "container">
          <div class = "container">
             <h1>Welcome to Gavin Celichowski's Calculator</h1>
-            <input id="input" type = "text" pattern = "[0-9]\s[-+*^/]\s[0-9]" placeholder="Enter a calculation" required>
+            <input id="input" type = "text" placeholder="Enter a calculation" required>
             <button id="calcButton" onclick="postCalculation()">
               Calculate
             </button>
@@ -44,24 +44,28 @@
         var postUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/SezzleCalculator";
         var getUrl = "https://ycm1r4fi1e.execute-api.us-east-1.amazonaws.com/default/retrievecalculations";
         function postCalculation(){
-            var calculation = {
-                "calculation" : $("#input").val()
-            }
-            console.log(calculation)
-            $.ajax({
-                url: postUrl,
-                crossDomain : true,
-                contentType : "application/json",
-                dataType: 'text',
-                data : JSON.stringify(calculation),
-                type: 'POST',
-                success: function(callback) {
-                    getCalculations()
-                },
-                error: function(callback){
-                    $("#input").val("INVALID CALCULATION")
+            var calcInput = $("#input").val()
+            if(calcInput.match(/[0-9] [-+*^/] [0-9]/) == null){
+                $("#input").val("INVALID CALCULATION")
+            } else {
+                var calculation = {
+                "calculation" : calcInput
                 }
-            })
+                $.ajax({
+                    url: postUrl,
+                    crossDomain : true,
+                    contentType : "application/json",
+                    dataType: 'text',
+                    data : JSON.stringify(calculation),
+                    type: 'POST',
+                    success: function(callback) {
+                        getCalculations()
+                    },
+                    error: function(callback){
+                        $("#input").val("INVALID CALCULATION")
+                    }
+                })
+            }
         }
             function display(calculations){
                 var html = ""
