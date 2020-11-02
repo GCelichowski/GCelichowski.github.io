@@ -46,7 +46,7 @@
         function postCalculation(){
             var calculation = {
                 "calculation" : $("#input").val()
-            };
+            }
             console.log(calculation)
             $.ajax({
                 url: postUrl,
@@ -56,21 +56,20 @@
                 data : JSON.stringify(calculation),
                 type: 'POST',
                 success: function(callback) {
-                    var json = JSON.parse(callback)
-                    display(json.calculation);
+                    getCalculations()
                 },
                 error: function(callback){
                     console.log("Error")
                 }
-            });
+            })
         }
             function display(calculations){
-                var html = "";
+                var html = ""
                 calculations = calculations.reverse()
                 calculations.forEach(element => {
                     html += "<tr><td class='calcInfo'><div class = 'calcBox'>" + JSON.stringify(element, undefined, 2) + "</div></td></tr>";
-                });
-                document.getElementById("calculations").innerHTML = html;
+                })
+                document.getElementById("calculations").innerHTML = html
             }
 
             function getCalculations() {
@@ -82,12 +81,12 @@
                     type: 'GET',
                     success: function(callback) {
                         var json = JSON.parse(callback)
-                        display(json.calculation);
+                        display(json.calculation)
                     },
                     error: function(callback){
                         console.log("Error")
                     }
-                });
+                })
             }
     </script>
 </body>
