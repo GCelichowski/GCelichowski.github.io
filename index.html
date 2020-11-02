@@ -78,6 +78,7 @@
                     success: function(callback) {
                         var json = JSON.parse(callback)
                         console.log(json);
+                        console.log(json.calculation)
                         display(json.calculation);
                     },
                     error: function(callback){
