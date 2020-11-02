@@ -62,7 +62,8 @@
         }
             function display(calculations){
                 var html = "";
-                calculations.array.forEach(element => {
+                console.log(calculations)
+                calculations.forEach(element => {
                     html += "<tr><td class='calcInfo'><div class = 'calcBox'>" + JSON.stringify(element, undefined, 2) + "</div></td>";
                 });
                 document.getElementById("calculations").innerHTML = html;
@@ -77,8 +78,6 @@
                     type: 'GET',
                     success: function(callback) {
                         var json = JSON.parse(callback)
-                        console.log(json);
-                        console.log(json.calculation)
                         display(json.calculation);
                     },
                     error: function(callback){
