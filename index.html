@@ -76,8 +76,9 @@
                     dataType: 'text',
                     type: 'GET',
                     success: function(callback) {
-                        console.log(callback);
-                        display(callback.calculation);
+                        var json = JSON.parse(callback)
+                        console.log(json);
+                        display(json.calculation);
                     },
                     error: function(callback){
                         console.log("Got Here")
