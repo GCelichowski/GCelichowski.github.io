@@ -1,8 +1,8 @@
 # Welcome to Gavin Celichowski's Calculator
 ## How to use the API:
 1. Navigate to [https://gcelichowski.github.io/](https://gcelichowski.github.io/)
-2. Enter a calculation (ex. 3 * 3)
-	**There must be a space in between the numbers and the operator**
+2. Enter a calculation (ex. 3 * 3)  
+	**There must be a space in between the numbers and the operator**  
 	Supported Operators are:
 	* Addition (+)
 	* Subtraction (-)
