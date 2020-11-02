@@ -23,7 +23,7 @@
      <div class = "container">
          <div class = "container">
             <h1>Welcome to Gavin Celichowski's Calculator</h1>
-            <input id="input" type = "text" placeholder="Enter a calculation" required>
+            <input id="input" type = "text" onclick="setTextBlack()" placeholder="Enter a calculation" required>
             <button id="calcButton" onclick="postCalculation()">
               Calculate
             </button>
@@ -46,7 +46,7 @@
         function postCalculation(){
             var calcInput = $("#input").val()
             if(calcInput.match(/[0-9] [-+*^/] [0-9]/) == null){
-                $("#input").val("INVALID CALCULATION")
+                $("#input").val("Invalid Calculation Format").css("color","red")
             } else {
                 var calculation = {
                 "calculation" : calcInput
@@ -91,6 +91,10 @@
                         console.log("Error")
                     }
                 })
+            }
+
+            function setTextBlack(){
+                $("#input").css("color","black")
             }
     </script>
 </body>
