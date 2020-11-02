@@ -52,8 +52,8 @@
                 url: postUrl,
                 crossDomain : true,
                 contentType : "application/json",
-                dataType: 'json',
-                data : calculation,
+                dataType: 'text',
+                data : JSON.stringify(calculation),
                 type: 'POST',
                 success: function(callback) {
                     var json = JSON.parse(callback)
