@@ -32,7 +32,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Calculation</th>
+                        <th scope="col">Past Calculations:</th>
                     </tr>
                 </thead>
                 <tbody id="calculations"> 
@@ -47,7 +47,7 @@
             var calculation = {
                 "calculation" : document.getElementById("input")
             };
-
+            console.log(calculation)
             $.ajax({
                 url: postUrl,
                 crossDomain : true,
