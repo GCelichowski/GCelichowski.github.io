@@ -34,9 +34,10 @@
                     <tr>
                         <th scope="col">Calculation</th>
                     </tr>
-                    <div id="calculations"></div>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <div id="calculations"></div>
+                </tbody>
             </table>
         </div>
     </div>
@@ -52,11 +53,15 @@
                 url: postUrl,
                 crossDomain : true,
                 contentType : "application/json",
-                dataType: 'json',
+                dataType: 'text',
                 data : calculation,
                 type: 'POST',
                 success: function(callback) {
-                    getCalculations();
+                    var json = JSON.parse(callback)
+                    display(json.calculation);
+                },
+                error: function(callback){
+                    console.log("Error")
                 }
             });
         }
@@ -81,7 +86,7 @@
                         display(json.calculation);
                     },
                     error: function(callback){
-                        console.log("Got Here")
+                        console.log("Error")
                     }
                 });
             }
