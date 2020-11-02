@@ -68,7 +68,7 @@
                 var html = "";
                 calculations = calculations.reverse()
                 calculations.forEach(element => {
-                    html += "<tr><td class='calcInfo'><div class = 'calcBox'>" + JSON.stringify(element, undefined, 2) + "</div></td>";
+                    html += "<tr><td class='calcInfo'><div class = 'calcBox'>" + JSON.stringify(element, undefined, 2) + "</div></td></tr>";
                 });
                 document.getElementById("calculations").innerHTML = html;
             }
